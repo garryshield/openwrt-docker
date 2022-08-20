@@ -1,5 +1,7 @@
 # openwrt-docker
 
+这个 repo 主要是用 docker 来调试和生成不同的配置，然后放到 github action 中自动编译，您也可以直接用来编译
+
 ### 构建镜像
 ```bash
 $ git clone git@github.com:garryshield/openwrt-docker.git
