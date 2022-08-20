@@ -18,6 +18,8 @@ $ docker run -it --rm -v $(pwd)/lede:/home/ubuntu/lede openwrt-docker /bin/bash
 ```bash
 $ id
 uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),27(sudo)
+$ pwd
+/home/ubuntu
 
 $ cd ~/lede
 $ ./scripts/feeds clean
@@ -44,6 +46,30 @@ $ make menuconfig
 ```bash
 $ make download -j$(nproc)
 $ make V=s -j1
+```
+
+### 二次编译
+```bash
+$ id
+uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),27(sudo)
+$ pwd
+/home/ubuntu
+
+$ cd ~/lede
+$ git pull
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+$ make defconfig
+$ make download -j$(nproc)
+$ make V=s -j$(nproc)
+```
+
+#### 重新配置
+```bash
+$ rm -rf ./tmp && rm -rf .config*
+$ make menuconfig
+$ make download -j$(nproc)
+$ make V=s -j$(nproc)
 ```
 
 参考链接：
