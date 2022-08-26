@@ -7,6 +7,10 @@
 $ git clone git@github.com:garryshield/openwrt-docker.git
 $ cd openwrt-docker
 $ docker build -t openwrt-docker ./
+
+# 上传镜像
+$ docker login
+$ docker push openwrt-docker:latest
 ```
 
 ### 下载源码
